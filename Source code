@@ -1,0 +1,135 @@
+#nuber count game...Velparkash M
+import random
+print("lets play a game \n 1)there is an two player in this game. \n 2)either both players are human or play with our bot. \n 3)you should enter a num between 1-10.\n 4)if you enter a number 0 or greater than 10 pc will consider a number randomly in between the given range. \n 5)player who makes the number count into 3 digit is consider as out.")
+print("___________________________________________________________________________________")
+
+choose_your_type=input(" (press 1 for single player - press 2 for two player) : ")
+sum,c=0,0
+game=True
+a=['s','S','Yes',"YES",'Y','y']
+if choose_your_type=='1':
+    k=input("Are you willing to start the game ??..")
+    #you are start the game
+    if k in a:
+        while game==True:
+            n=int(input("your choice : "))
+            if n>=1 and n<=10:
+                sum+=n
+            else:
+                n=random.randint(1,10)
+                print("sry randomly considered number is",n,sep=" ")
+                sum+=n
+            print("total sum is ",sum,sep=" ")
+            if len(str(sum))==3:
+                game=False
+                print("you lose")
+                break
+            o=(11-n%11)
+            print("pc choice : ",o,sep=" ")
+            sum+=o
+            print("total sum is ",sum,sep=" ")
+            if len(str(sum))==3:
+                game=False
+                print("pc lose")
+    #pc starts first
+    else:
+        while game==True:
+            if c==0:
+                o=random.randint(1,10)
+                c=2
+                print("pc choice : ",o,sep=" ")
+                sum+=o
+                print("total sum is ",sum,sep=" ")
+                n=int(input("your choice : "))
+                if n>=1 and n<=10:
+                    sum+=n
+                else:
+                    n=random.randint(1,10)
+                    print("sry randomly considered number is",n,sep=" ")
+                    sum+=n
+                
+            
+            o=11-(sum%11)
+            print("pc choice : ",o,sep=" ")
+            sum+=o
+            print("total sum is ",sum,sep=" ")
+            if len(str(sum))==3:
+                game=False
+                print("pc lose")
+                break
+            n=int(input("your choice : "))
+            if n>=1 and n<=10:
+                sum+=n
+            else:
+                n=random.randint(1,10)
+                print("sry randomly considered number is",n,sep=" ")
+                sum+=n
+            print("total sum is ",sum,sep=" ")
+            if len(str(sum))==3:
+                game=False
+                print("you lose")
+elif choose_your_type=='2':
+    #two player
+    p1=input("enter 1st player name : ")
+    p2=input("enter 2nd player name : ")
+    print(" press 1 for player 1 to start \n press 2 for player 2 to start")
+    k=int(input())
+    if k==1:
+        print(p1,"are you ready...")
+        while game==True:
+        #player 1 start the match
+            
+            n=int(input("player1 : "))
+            if n>=1 and n<=10:
+                sum+=n
+            else:
+                n=random.randint(1,10)
+                print("sry randomly considered number is",n,sep=" ")
+                sum+=n
+            print("total sum is ",sum,sep=" ")
+            if len(str(sum))==3:
+                game=False
+                print(p1,"lose the match.",sep=" ")
+                break
+            o=int(input("player2 : "))
+            if o>=1 and o<=10:
+                sum+=o
+            else:
+                n=random.randint(1,10)
+                print("sry randomly considered number is",o,sep=" ")
+                sum+=o
+            print("total sum is ",sum,sep=" ")
+            if len(str(sum))==3:
+                game=False
+                print(p2," lose the match.",sep=" ")
+        
+    elif k==2:
+        print(p2," are you ready.... ")
+        while game==True:
+        #player2 start the match
+            
+            o=int(input("player2 : "))
+            if o>=1 and o<=10:
+                sum+=o
+            else:
+                n=random.randint(1,10)
+                print("sry randomly considered number is",o,sep=" ")
+                sum+=o
+            
+            print("total sum is ",sum,sep=" ")
+            if len(str(sum))==3:
+                game=False
+                print(p2," lose the match.",sep=" ")
+                break
+            n=int(input("player1 : "))
+            if n>=1 and n<=10:
+                sum+=n
+            else:
+                n=random.randint(1,10)
+                print("sry randomly considered number is",n,sep=" ")
+                sum+=n
+            
+            print("total sum is ",sum,sep=" ")
+            if len(str(sum))==3:
+                game=False
+                print(p1,"lose the match.",sep=" ")
